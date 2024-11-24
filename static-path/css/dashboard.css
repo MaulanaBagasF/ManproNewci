@@ -9,114 +9,192 @@
 
 body {
     background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
 }
 
+/* Header Styling */
 header {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    background-color: #ffffff;
+    padding: 1.25rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 h1 {
-    color: #333;
-    font-size: 24px;
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
+/* Sidebar Styling */
 .sidebar {
-    background-color: #333;
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
     color: #fff;
-    width: 250px;
+    width: 280px;
     position: fixed;
-    top: 70px;
+    top: 0;
     left: 0;
-    height: calc(100% - 70px);
-    padding-top: 20px;
+    height: 100%;
+    padding-top: 90px;
+    transition: all 0.3s ease;
 }
 
-ul {
+.sidebar ul {
     list-style-type: none;
     padding: 0;
 }
 
-li {
-    padding: 10px 20px;
+.sidebar li {
+    margin: 5px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
-li a {
+.sidebar li a {
     color: #fff;
     text-decoration: none;
     display: block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
-li a:hover {
-    background-color: #555;
+.sidebar li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
 }
 
+/* Main Content Area */
 main {
-    margin-left: 250px;
-    padding: 20px;
+    margin-left: 280px;
+    padding: 90px 30px 30px;
+    min-height: 100vh;
 }
 
 h2 {
-    color: #333;
-    margin-bottom: 20px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
 }
 
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: #3498db;
+    border-radius: 2px;
+}
+
+/* Table Styling */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
 }
 
 th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
+    padding: 15px 20px;
+    border: none;
+    border-bottom: 1px solid #eef0f5;
 }
 
 th {
-    background-color: #f8f8f8;
+    background-color: #f8fafc;
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Status Button Styling */
+.status-btn, .payment-status-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
 }
 
-.status-btn {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.status-btn[data-status="tersedia"] {
-    background-color: #4CAF50;
-    color: #fff;
-}
-
-.status-btn[data-status="digunakan"] {
-    background-color: #f44336;
-    color: #fff;
-}
-
-.payment-status-btn {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
+.status-btn[data-status="tersedia"],
 .payment-status-btn[data-status="tersedia"] {
-    background-color: #4CAF50;
+    background-color: #2ecc71;
     color: #fff;
-    
 }
 
+.status-btn[data-status="tersedia"]:hover,
+.payment-status-btn[data-status="tersedia"]:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(46, 204, 113, 0.2);
+}
+
+.status-btn[data-status="digunakan"],
 .payment-status-btn[data-status="digunakan"] {
-    background-color: #f44336;
+    background-color: #e74c3c;
     color: #fff;
+}
+
+.status-btn[data-status="digunakan"]:hover,
+.payment-status-btn[data-status="digunakan"]:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(231, 76, 60, 0.2);
 }
 
 .pp {
-  padding-right: 10 px;  
+    padding-right: 15px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .sidebar {
+        width: 240px;
+    }
     
+    main {
+        margin-left: 240px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    main {
+        margin-left: 0;
+    }
+    
+    header {
+        padding: 1rem;
+    }
 }
