@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Pelanggan - UKM Newci</title>
+    <link rel="stylesheet" href="css/kelola-pelanggan.css">
+</head>
+<body>
+    <header>
+        <h1>Kelola Pelanggan</h1>
+    </header>
+    <div class="sidebar">
+        <ul>
+            <li><a href="dashboard">Dashboard</a></li>
+            <li><a href="kelola-mesin-cuci">Kelola Mesin Cuci</a></li>
+            <li><a href="kelola-pelanggan">Kelola Pelanggan</a></li>
+            <li><a href="laporan">Laporan Pendapatan</a></li>
+        </ul>
+    </div>
+    <main>
+        <h2>Daftar Pelanggan</h2>
+        <button class="add-btn"><a href="tambah-pelanggan">Tambah Pelanggan</a></button>
+        <table id="pelanggan-table">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>No HP</th>
+                    <th>Alamat</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% pelanggan.forEach(pelanggan => { %>
+                    <tr>
+                        <td><%= pelanggan.namaP %></td>
+                        <td><%= pelanggan.noHP %></td>
+                        <td><%= pelanggan.alamat %></td>
+                        <td>
+                            <a class="edit-btn" href="/edit-pelanggan/<%= pelanggan.namaP %>"><button>Edit</button></a>
+                            <button class="delete-btn" onclick="hapusPelanggan('<%= pelanggan.namaP %>')">Delete</button>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+    <script>
+        function hapusPelanggan(namaP) {
+            if (confirm('Apakah Anda yakin ingin menghapus pelanggan ini?')) {
+                fetch(`/hapus-pelanggan/${namaP}`, {
+                    method: 'DELETE',
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    document.getElementById(`pelanggan-${namaP}`).remove();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Berhasil menghapus pelanggan');
+                });
+            }
+        }
+        
+    </script>
+</body>
+</html>

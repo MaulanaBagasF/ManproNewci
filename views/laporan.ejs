@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pendapatan - UKM Newci</title>
+    <link rel="stylesheet" href="css/laporan.css">
+    <link rel="stylesheet" href="css/tambah-pelanggan.css">
+</head>
+<body>
+    <header>
+        <h1>Laporan Pendapatan</h1>
+    </header>
+    <div class="sidebar">
+        <ul>
+            <li><a href="dashboard">Dashboard</a></li>
+            <li><a href="kelola-mesin-cuci">Kelola Mesin Cuci</a></li>
+            <li><a href="kelola-pelanggan">Kelola Pelanggan</a></li>
+            <li><a href="laporan">Laporan Pendapatan</a></li>
+        </ul>
+    </div>
+    <main>
+        <h2>Pilih Rentang Tanggal</h2>
+        <form id="tanggal-form" action="/laporan" method="get">
+            <label for="tanggal-mulai">Tanggal Mulai:</label>
+            <input type="date" id="tanggal-mulai" name="tanggalMulai" required>
+            <label for="tanggal-selesai">Tanggal Selesai:</label>
+            <input type="date" id="tanggal-selesai" name="tanggalSelesai" required>
+            <button type="submit">Tampilkan Laporan</button>
+        </form>
+        
+        <div id="laporan-container">
+        <table id="laporan-table">
+            <thead>
+                <tr>
+                    <th>Nama Mesin Cuci</th>
+                    <th>Nama Penyewa</th>
+                    <th>Tanggal Mulai</th>
+                    <th>Tanggal Selesai</th>
+                    <th>Durasi (Menit)</th>
+                    <th>Status Pembayaran</th>
+                    <th>Biaya</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% transaksi.forEach(transaksi => { %>
+                    <tr>
+                        <td><%= transaksi.namaMesin %></td>
+                        <td><%= transaksi.namaPengguna %></td>
+                        <% if(transaksi.tglMulai){%>
+                            <td><%= transaksi.tglMulai.toString().substring(0,21) %></td>
+                        <%}else{%>
+                            <td><%= transaksi.tglMulai %></td>
+                        <%}%>
+                        <% if(transaksi.tglSelesai){%>
+                            <td><%= transaksi.tglSelesai.toString().substring(0,21) %></td>
+                        <%}else{%>
+                            <td><%= transaksi.tglSelesai %></td>
+                        <%}%>
+                        <td><%= transaksi.durasi * 15%></td>
+                        <td><%= transaksi.statusPembayaran %></td>
+                        <td><%= transaksi.biaya %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

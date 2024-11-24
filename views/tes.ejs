@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - UKM Newci</title>
+    <link rel="stylesheet" href="css/tes.css">
+</head>
+<body>
+    <header>
+        <h1>UKM Newci</h1>
+        <a href="/login" class="admin-btn">Admin</a>
+    </header>
+    <main>
+        <h2>Daftar Mesin Cuci</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Merek</th>
+                    <th>Tarif (per 15 menit)</th>
+                    <th>Kapasitas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (mesincuci.length > 0) { %>
+                    <% mesincuci.forEach(function(mesin) { %>
+                        <tr>
+                            <td><%= mesin.nama %></td>
+                            <td><%= mesin.merek %></td>
+                            <td>Rp <%= mesin.tarif %></td>
+                            <td><%= mesin.kapasitas %> kg</td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4">Tidak ada mesin cuci yang tersedia saat ini.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

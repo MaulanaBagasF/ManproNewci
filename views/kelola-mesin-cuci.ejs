@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Mesin Cuci - UKM Newci</title>
+    <link rel="stylesheet" href="css/kelola-mesin-cuci.css">
+</head>
+<body>
+    <header>
+        <h1>Kelola Mesin Cuci</h1>
+    </header>
+    <div class="sidebar">
+        <ul>
+            <li><a href="dashboard">Dashboard</a></li>
+            <li><a href="kelola-mesin-cuci">Kelola Mesin Cuci</a></li>
+            <li><a href="kelola-pelanggan">Kelola Pelanggan</a></li>
+            <li><a href="laporan">Laporan Pendapatan</a></li>
+        </ul>
+    </div>
+    <main>
+        <h2>Daftar Mesin Cuci</h2>
+        <button class="add-btn"><a href="tambah-mesin-cuci">Tambah Mesin Cuci</a></button>
+        <table id="mesin-cuci-table">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Merek</th>
+                    <th>Kapasitas</th>
+                    <th>Tarif</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% mesincuci.forEach(function(mesin) { %>
+                    <tr>
+                        <td><%= mesin.nama %></td>
+                        <td><%= mesin.merek %></td>
+                        <td><%= mesin.kapasitas %></td>
+                        <td><%= mesin.tarif %></td>
+                        <td><%= mesin.status %></td>
+                        <td>
+                            <a href="/edit-mesin-cuci/<%=mesin.nama%>"><button class="edit-btn">Edit</button></a>
+                            <button  class= "delete-btn" onclick="hapusMesinCuci('<%= mesin.nama%>')">Delete</button>
+
+                            <!-- <button class="delete-btn">Delete</button> -->
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </main>
+    <script>
+        function hapusMesinCuci(nama) {
+            if (confirm('Apakah Anda yakin ingin menghapus mesin cuci ini?')) {
+                fetch(`/hapus-mesin-cuci/${nama}`, {
+                    method: 'DELETE',
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    document.getElementById(`mesin-${nama}`).remove();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Berhasil menghapus mesin cuci');
+                });
+            }
+        }
+        
+    </script>
+</body>
+</html>
