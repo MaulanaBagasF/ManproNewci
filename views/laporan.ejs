@@ -43,6 +43,7 @@
                 </tr>
             </thead>
             <tbody>
+                <% let totalPendapatan = 0; %>
                 <% transaksi.forEach(transaksi => { %>
                     <tr>
                         <td><%= transaksi.namaMesin %></td>
@@ -61,7 +62,12 @@
                         <td><%= transaksi.statusPembayaran %></td>
                         <td><%= transaksi.biaya %></td>
                     </tr>
+                    <% totalPendapatan += transaksi.biaya; %>
                 <% }) %>
+                <tr class="total-row">
+                    <td colspan="6" style="text-align: right;"><strong>Total Pendapatan:</strong></td>
+                    <td><strong>Rp <%= totalPendapatan %></strong></td>
+                </tr>
             </tbody>
         </table>
     </main>
