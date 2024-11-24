@@ -319,3 +319,69 @@ form button:hover {
         padding: 0.75rem;
     }
 }
+Updated Table CSS
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    table-layout: fixed; /* Menambahkan fixed layout */
+}
+
+th, td {
+    padding: 1rem;
+    border: none;
+    border-bottom: 1px solid #eef0f5;
+    text-align: left; /* Memastikan alignment konsisten */
+}
+
+/* Mengatur lebar spesifik untuk setiap kolom */
+th:nth-child(1), td:nth-child(1) { /* Nama */
+    width: 20%;
+}
+
+th:nth-child(2), td:nth-child(2) { /* Merek */
+    width: 15%;
+}
+
+th:nth-child(3), td:nth-child(3) { /* Kapasitas */
+    width: 15%;
+}
+
+th:nth-child(4), td:nth-child(4) { /* Tarif */
+    width: 15%;
+}
+
+th:nth-child(5), td:nth-child(5) { /* Status */
+    width: 15%;
+}
+
+th:nth-child(6), td:nth-child(6) { /* Aksi */
+    width: 20%;
+    text-align: center; /* Mengatur tombol aksi ke tengah */
+}
+
+th {
+    background-color: #f8fafc;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Menyesuaikan tombol dalam kolom aksi */
+.edit-btn, .delete-btn {
+    display: inline-block;
+    margin: 0 4px;
+}
