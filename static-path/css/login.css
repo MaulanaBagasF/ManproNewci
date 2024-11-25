@@ -10,82 +10,117 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to right, #ebe5e9, #efe6e6);
+    background: linear-gradient(to right, #00b4d8, #006f8e); /* Gradient biru laut */
+    font-size: 16px;
 }
 
 .login-container {
-    width: 350px;
-    padding: 20px 40px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
+    width: 400px;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut */
+    border-radius: 16px; /* Sudut lebih besar untuk kesan modern */
     text-align: center;
+    backdrop-filter: blur(8px); /* Efek kabur untuk kesan futuristik */
+    border: 2px solid #00b4d8; /* Border biru laut */
 }
 
 h2 {
-    margin-bottom: 20px;
-    color: #333;
-    font-weight: 600;
+    margin-bottom: 30px;
+    color: #006f8e;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-align: left;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 500;
-    color: #555;
+    font-weight: 600;
+    color: #006f8e; /* Warna teks label biru laut */
 }
 
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
     transition: all 0.3s ease;
+    background-color: #f0f8ff; /* Background lembut */
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    border-color: #45a049;
-    box-shadow: 0 0 8px rgba(255, 94, 98, 0.2);
+    border-color: #00b4d8;
+    box-shadow: 0 0 10px rgba(0, 180, 216, 0.2);
     outline: none;
 }
 
 .btn {
     width: 100%;
-    padding: 12px;
-    background-color: #45a049;
+    padding: 14px;
+    background-color: #00b4d8; /* Biru laut */
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     color: #fff;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #e14b50;
+    background-color: #006f8e;
+    transform: translateY(-3px); /* Efek hover dengan sedikit pergerakan */
+}
+
+.btn:active {
+    transform: translateY(0); /* Efek saat tombol diklik */
 }
 
 p {
-    margin-top: 15px;
+    margin-top: 20px;
     color: #555;
+    font-size: 14px;
 }
 
 a {
-    color: #ff5e62;
+    color: #006f8e;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #e14b50;
+    color: #00b4d8;
     text-decoration: underline;
+}
+
+/* Ikon Mesin Cuci */
+.mesin-cuci-icon {
+    width: 30px;
+    height: auto;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+/* Efek animasi untuk logo mesin cuci */
+h1 i {
+    animation: rotate 3s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
