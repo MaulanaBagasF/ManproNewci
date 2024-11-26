@@ -1,92 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #00aaff; /* Biru Laut */
+    --secondary-color: #005f99; /* Biru Gelap */
+    --accent-color: #33ccff; /* Aksen Biru Cerah */
+    --success-color: #4CAF50;
+    --danger-color: #ef233c;
+    --background-color: #e0f7fa; /* Biru Muda */
+    --text-color: #0d1b2a; /* Biru Gelap untuk Teks */
+    --border-radius: 20px;
+    --transition: all 0.4s ease;
+    --box-shadow: 0 10px 20px rgba(0, 170, 255, 0.3);
+    --blur-filter: blur(10px);
+}
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background-color: #f0f2f5;
-    color: #333;
+    background: linear-gradient(135deg, var(--background-color) 0%, #ffffff 100%);
+    color: var(--text-color);
     line-height: 1.6;
+    font-size: 16px;
 }
 
-/* Header Styling */
 header {
-    background-color: #ffffff;
-    padding: 1.25rem;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #ffffff 0%, var(--background-color) 100%);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-header:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    border-bottom: 3px solid var(--primary-color);
+    backdrop-filter: var(--blur-filter);
 }
 
 h1 {
-    color: #2c3e50;
-    font-size: 1.5rem;
+    color: var(--text-color);
+    font-size: 2rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
 }
 
-/* Sidebar Styling */
 .sidebar {
-    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: #fff;
-    width: 280px;
+    width: 260px;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    padding-top: 90px;
-    transition: all 0.3s ease;
+    padding-top: 80px;
+    transition: var(--transition);
+    box-shadow: inset -5px 0 10px rgba(0, 95, 153, 0.2);
+    z-index: 999;
 }
 
 .sidebar ul {
     list-style-type: none;
     padding: 0;
+    margin-top: 1.5rem;
 }
 
 .sidebar li {
-    margin: 5px 15px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    margin: 14px 18px;
+    border-radius: var(--border-radius);
 }
 
 .sidebar li a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     display: block;
-    padding: 12px 20px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    padding: 16px 22px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .sidebar li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px);
+    background: var(--accent-color);
+    transform: translateX(10px);
 }
 
-/* Main Content Area */
 main {
-    margin-left: 280px;
-    padding: 90px 30px 30px;
-    min-height: 100vh;
+    margin-left: 260px;
+    padding: 120px 30px 30px;
+    transition: var(--transition);
 }
 
 h2 {
-    color: #2c3e50;
-    margin-bottom: 25px;
+    color: var(--text-color);
+    margin-bottom: 40px;
     font-weight: 600;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+    font-size: 1.5rem;
 }
 
 h2::after {
@@ -94,51 +108,52 @@ h2::after {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 50px;
-    height: 3px;
-    background: #3498db;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
     border-radius: 2px;
 }
 
-/* Table Styling */
 table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     margin-bottom: 30px;
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
 }
 
 th, td {
-    padding: 15px 20px;
+    padding: 1.5rem;
     border: none;
-    border-bottom: 1px solid #eef0f5;
+    border-bottom: 1px solid #e0f7fa;
+    text-align: left;
 }
 
 th {
-    background-color: #f8fafc;
+    background-color: var(--background-color);
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--text-color);
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     letter-spacing: 0.5px;
 }
 
 tr:hover {
-    background-color: #f8fafc;
+    background-color: #ccf3f9;
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
 }
 
-/* Status Button Styling */
 .status-btn, .payment-status-btn {
     padding: 8px 16px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: 0.5px;
@@ -146,40 +161,36 @@ tr:hover {
 
 .status-btn[data-status="tersedia"],
 .payment-status-btn[data-status="tersedia"] {
-    background-color: #2ecc71;
+    background-color: var(--success-color);
     color: #fff;
 }
 
 .status-btn[data-status="tersedia"]:hover,
 .payment-status-btn[data-status="tersedia"]:hover {
-    background-color: #27ae60;
     transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(46, 204, 113, 0.2);
+    box-shadow: 0 3px 8px rgba(76, 175, 80, 0.3);
 }
 
 .status-btn[data-status="digunakan"],
 .payment-status-btn[data-status="digunakan"] {
-    background-color: #e74c3c;
+    background-color: var(--danger-color);
     color: #fff;
 }
 
 .status-btn[data-status="digunakan"]:hover,
 .payment-status-btn[data-status="digunakan"]:hover {
-    background-color: #c0392b;
     transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(231, 76, 60, 0.2);
+    box-shadow: 0 3px 8px rgba(239, 35, 60, 0.3);
 }
 
 .pp {
     padding-right: 15px;
 }
 
-/* Responsive Design */
 @media screen and (max-width: 1024px) {
     .sidebar {
         width: 240px;
     }
-    
     main {
         margin-left: 240px;
     }
@@ -189,11 +200,9 @@ tr:hover {
     .sidebar {
         transform: translateX(-100%);
     }
-    
     main {
         margin-left: 0;
     }
-    
     header {
         padding: 1rem;
     }
