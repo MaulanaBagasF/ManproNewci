@@ -3,154 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Mesin Cuci - UKM Newci</title>
-    <link rel="stylesheet" href="css/tambah-pelanggan.css">
+    <title>Edit Tarif Mesin Cuci - UKM Newci</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-        /* Existing CSS here... */
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            min-height: 100vh;
+            color: #2c3e50;
+        }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            padding-top: 30px;
+        }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
+        .sidebar ul {
+            list-style-type: none;
+        }
 
-body {
-    background-color: #f0f2f5;
-}
+        .sidebar ul li a {
+            display: block;
+            color: #ecf0f1;
+            padding: 15px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
 
-header {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+        .sidebar ul li a:hover {
+            background-color: #34495e;
+        }
 
-h1 {
-    color: #333;
-    font-size: 24px;
-}
+        .main-content {
+            flex-grow: 1;
+            padding: 30px;
+            background-color: #f0f4f8;
+        }
 
-.sidebar {
-    background-color: #333;
-    color: #fff;
-    width: 250px;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    height: calc(100% - 70px);
-    padding-top: 20px;
-}
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
+        .card-header {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2980b9;
+        }
 
-li {
-    padding: 10px 20px;
-}
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-li a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-}
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
 
-li a:hover {
-    background-color: #555;
-}
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: 6px;
+            background-color: #f8f9fa;
+            font-size: 16px;
+        }
 
-main {
-    margin-left: 270px;
-    padding: 20px;
-}
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
 
-h2 {
-    color: #333;
-    margin-bottom: 20px;
-}
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+        }
 
-form label {
-    display: block;
-    margin: 10px 0 5px;
-}
+        .btn:hover {
+            background-color: #3498db;
+        }
 
-form input,
-form select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-form button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-form button:hover {
-    background-color: #45a049;
-}
-
-/* Tambahan CSS untuk membuat dropdown sejajar */
-.form-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.form-group label,
-.form-group select {
-    width: 48%;
-}
-
-@media (max-width: 600px) {
-    .form-group label,
-    .form-group select {
-        width: 100%;
-    }
-}
-
+        .readonly-input {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
-<body>
-    <header>
-        <h1>Edit Mesin Cuci</h1>
-    </header>
     <div class="sidebar">
         <ul>
-            <li><a href="dashboard">Dashboard</a></li>
-            <li><a href="kelola-mesin-cuci">Kelola Mesin Cuci</a></li>
-            <li><a href="kelola-pelanggan">Kelola Pelanggan</a></li>
-            <li><a href="laporan">Laporan Pendapatan</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/kelola-mesin-cuci">Kelola Mesin Cuci</a></li>
+            <li><a href="/kelola-pelanggan">Kelola Pelanggan</a></li>
+            <li><a href="/laporan">Laporan Pendapatan</a></li>
         </ul>
     </div>
-    <main>
-        <h2>Edit Mesin Cuci</h2>
-        <!-- <form id="tambah-mesin-cuci-form" action="/tambah-mesin-cuci" method="POST"> -->
-        <form id="tambah-mesin-cuci-form"  action="/edit-mesin-cuci/<%= mesin.nama %>" method="POST">
-
-            <label for="nama">Nama:</label>
-            <input type="text" id="nama" name="nama" required>
-            <label for="merek">Merek:</label>
-            <input type="text" id="merek" name="merek" required>
-            <label for="kapasitas">Kapasitas:</label>
-            <input type="number" id="kapasitas" name="kapasitas" required>
-            <label for="tarif">Tarif (per 15 menit):</label>
-            <input type="number" id="tarif" name="tarif" required>
-            <button type="submit">Simpan Perubahan</button>
-        </form>
-    </main>
+    
+    <div class="main-content">
+        <div class="card">
+            <div class="card-header">
+                <h2>Edit Tarif Mesin Cuci</h2>
+            </div>
+            <form id="edit-mesin-cuci-form" action="/edit-mesin-cuci/<%= mesin.nama %>" method="POST">
+                <div class="form-group">
+                    <label for="nama">Nama Mesin</label>
+                    <input type="text" id="nama" name="nama" value="<%= mesin.nama %>" readonly class="readonly-input">
+                </div>
+                <div class="form-group">
+                    <label for="merek">Merek</label>
+                    <input type="text" id="merek" name="merek" value="<%= mesin.merek %>" readonly class="readonly-input">
+                </div>
+                <div class="form-group">
+                    <label for="kapasitas">Kapasitas</label>
+                    <input type="number" id="kapasitas" name="kapasitas" value="<%= mesin.kapasitas %>" readonly class="readonly-input">
+                </div>
+                <div class="form-group">
+                    <label for="tarif">Tarif (per 15 menit)</label>
+                    <input type="number" id="tarif" name="tarif" value="<%= mesin.tarif %>" required>
+                </div>
+                <button type="submit" class="btn">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

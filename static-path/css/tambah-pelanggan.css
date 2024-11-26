@@ -1,113 +1,140 @@
-/* Existing CSS here... */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
+:root {
+    --primary-color: #0D47A1;      /* Deep Blue */
+    --secondary-color: #1565C0;    /* Bright Blue */
+    --accent-color: #2196F3;       /* Vibrant Blue */
+    --background-light: #E3F2FD;   /* Light Blue Background */
+    --text-color: #333;
+    --success-color: #4CAF50;
+    --error-color: #F44336;
 }
 
 body {
-    background-color: #f0f2f5;
-}
-
-header {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-h1 {
-    color: #333;
-    font-size: 24px;
+    font-family: 'Inter', 'Poppins', 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 .sidebar {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: white;
     width: 250px;
     position: fixed;
-    top: 70px;
+    top: 0;
     left: 0;
-    height: calc(100% - 70px);
-    padding-top: 20px;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-ul {
+.sidebar ul {
     list-style-type: none;
     padding: 0;
 }
 
-li {
-    padding: 10px 20px;
-}
-
-li a {
-    color: #fff;
+.sidebar li a {
+    color: white;
     text-decoration: none;
     display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-li a:hover {
-    background-color: #555;
+.sidebar li a:hover {
+    background-color: var(--accent-color);
 }
 
 main {
     margin-left: 270px;
-    padding: 20px;
+    padding: 30px;
 }
 
-h2 {
-    color: #333;
+#tambah-pelanggan-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: 300;
     margin-bottom: 20px;
 }
 
 form label {
     display: block;
     margin: 10px 0 5px;
+    color: var(--primary-color);
+    font-weight: 500;
 }
 
 form input,
 form select {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
 }
 
 form button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: 500;
 }
 
 form button:hover {
-    background-color: #45a049;
+    background-color: var(--secondary-color);
 }
 
-/* Tambahan CSS untuk membuat dropdown sejajar */
-.form-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+main p {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
 }
 
-.form-group label,
-.form-group select {
-    width: 48%;
+main p[style*="color: red"] {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: var(--error-color) !important;
+    border: 1px solid var(--error-color);
 }
 
-@media (max-width: 600px) {
-    .form-group label,
-    .form-group select {
+main p[style*="color: green"] {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--success-color) !important;
+    border: 1px solid var(--success-color);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
         width: 100%;
+        position: static;
+        height: auto;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    #tambah-pelanggan-form {
+        padding: 20px;
     }
 }
