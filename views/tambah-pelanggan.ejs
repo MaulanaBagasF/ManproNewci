@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="css/tambah-pelanggan.css">
 </head>
 <body>
-    <header>
-        <h1>Tambah Pelanggan Baru</h1>
-    </header>
     <div class="sidebar">
         <ul>
             <li><a href="/dashboard">Dashboard</a></li>
@@ -19,24 +16,24 @@
         </ul>
     </div>
     <main>
-        <h2>Form Tambah Pelanggan</h2>
+        <h1>Tambah Pelanggan Baru</h1>
         <form id="tambah-pelanggan-form" action="/tambah-pelanggan" method="POST">
             <label for="namapelanggan">Nama:</label>
             <input type="text" id="namapelanggan" name="namapelanggan" placeholder="Masukkan nama anda" required>
             
             <label for="nohp">Nomor HP:</label>
-            <input maxlength="11"type="text" id="nohp" name="nohp" placeholder="Masukkan nomor HP anda" required>
-
+            <input maxlength="11" type="text" id="nohp" name="nohp" placeholder="Masukkan nomor HP anda" required>
+            
             <label for="alamat">Alamat:</label>
             <input maxlength="255" type="text" id="alamat" name="alamat" placeholder="Masukkan alamat anda" required>
-
+            
             <label for="kelurahan">Kelurahan:</label>
             <select id="kelurahanId" name="kelurahanId" required>
                 <% kelurahan.forEach(k => { %>
                     <option value="<%= k.idKel %>"><%= k.namaKel %></option>
                 <% }); %>
             </select>
-
+            
             <button type="submit">Tambah</button>
         </form>
 
@@ -47,8 +44,5 @@
             <p style="color: green;"><%= successMsg %></p>
         <% } %>
     </main>
-    <script>
-    
-    </script>
 </body>
 </html>
