@@ -8,190 +8,196 @@
     <link rel="stylesheet" href="css/edit-pelanggan.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
         * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-        }
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
 
-        body {
-            background-color: #f0f2f5;
-        }
+body {
+    background-color: #e8f0fe;
+}
 
-        header {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+/* Menghapus background pada header dan menyesuaikan style */
+header {
+    padding: 20px;
+    text-align: center;
+    box-shadow: none; /* Menghapus shadow */
+    background-color: transparent; /* Menghapus background */
+}
 
-        h1 {
-            color: #333;
-            font-size: 24px;
-        }
+h1 {
+    color: #1a4789; /* Mengubah warna text menjadi biru tua */
+    font-size: 24px;
+}
 
-        .sidebar {
-            background-color: #333;
-            color: #fff;
-            width: 250px;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            height: calc(100% - 70px);
-            padding-top: 20px;
-        }
+.sidebar {
+    background-color: #1a4789;
+    color: #fff;
+    width: 250px;
+    position: fixed;
+    top: 0; /* Mengubah posisi top karena header transparent */
+    left: 0;
+    height: 100%; /* Mengubah height karena header transparent */
+    padding-top: 20px;
+}
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+/* CSS lainnya tetap sama seperti sebelumnya */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
 
-        li {
-            padding: 10px 20px;
-        }
+li {
+    padding: 10px 20px;
+}
 
-        li a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-        }
+li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
 
-        li a:hover {
-            background-color: #555;
-        }
+li a:hover {
+    background-color: #2760b8;
+}
 
-        main {
-            margin-left: 270px;
-            padding: 20px;
-        }
+main {
+    margin-left: 270px;
+    padding: 20px;
+}
 
-        h2 {
-            color: #333;
-            margin-bottom: 20px;
-        }
+/* Sisanya tetap sama seperti CSS sebelumnya */
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
+h2 {
+    color: #1a4789; /* Mengubah ke biru tua */
+    margin-bottom: 20px;
+}
 
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
 
-        th {
-            background-color: #f8f8f8;
-            font-weight: 500;
-        }
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
 
-        .add-btn {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: background-color 0.3s ease;
-            margin-bottom: 20px;
-        }
+th {
+    background-color: #1a4789; /* Mengubah header tabel ke biru tua */
+    color: #fff;
+    font-weight: 500;
+}
 
-        .add-btn:hover {
-            background-color: #45a049;
-        }
+.add-btn {
+    padding: 10px 20px;
+    background-color: #1a4789; /* Mengubah ke biru tua */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
 
-        .edit-btn button, .delete-btn {
-            padding: 8px 16px;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.add-btn:hover {
+    background-color: #2760b8; /* Mengubah hover ke biru yang lebih terang */
+}
 
-        .edit-btn button {
-            background-color: #2196F3;
-        }
+.edit-btn button, .delete-btn {
+    padding: 8px 16px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        .edit-btn button:hover {
-            background-color: #2196F3;
-        }
+.edit-btn button {
+    background-color: #1a4789; /* Mengubah ke biru tua */
+}
 
-        .delete-btn {
-            background-color: #f44336;
-        }
+.edit-btn button:hover {
+    background-color: #2760b8; /* Mengubah hover ke biru yang lebih terang */
+}
 
-        .delete-btn:hover {
-            background-color: #e53935;
-        }
+.delete-btn {
+    background-color: #f44336;
+}
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
-        }
+.delete-btn:hover {
+    background-color: #e53935;
+}
 
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 8px;
-        }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+}
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-        form label {
-            display: block;
-            margin: 10px 0 5px;
-        }
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-        form input,
-        form select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #1a4789; /* Mengubah label form ke biru tua */
+}
 
-        form button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+form input,
+form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
 
-        form button:hover {
-            background-color: #45a049;
-        }
+form button {
+    padding: 10px 20px;
+    background-color: #1a4789; /* Mengubah ke biru tua */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2760b8; /* Mengubah hover ke biru yang lebih terang */
+}
+        
     </style>
 </head>
 <body>

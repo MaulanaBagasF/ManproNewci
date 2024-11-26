@@ -1,99 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary-color: #4361ee;
-    --secondary-color: #3f37c9;
+    --primary-color: #00aaff; /* Biru Laut */
+    --secondary-color: #005f99; /* Biru Gelap */
+    --accent-color: #33ccff; /* Aksen Biru Cerah */
     --success-color: #4CAF50;
     --danger-color: #ef233c;
-    --background-color: #f8f9fa;
-    --text-color: #2b2d42;
-    --border-radius: 12px;
-    --transition: all 0.3s ease;
+    --background-color: #e0f7fa; /* Biru Muda */
+    --text-color: #0d1b2a; /* Biru Gelap untuk Teks */
+    --border-radius: 20px;
+    --transition: all 0.4s ease;
+    --box-shadow: 0 10px 20px rgba(0, 170, 255, 0.3);
+    --blur-filter: blur(10px);
 }
 
+/* Global Reset and Typography */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background-color: var(--background-color);
+    background: linear-gradient(135deg, var(--background-color) 0%, #ffffff 100%);
     color: var(--text-color);
     line-height: 1.6;
+    font-size: 16px;
 }
 
 /* Header Styling */
 header {
-    background-color: #fff;
-    padding: 1.25rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(135deg, #ffffff 0%, var(--background-color) 100%);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    border-bottom: 3px solid var(--primary-color);
+    backdrop-filter: var(--blur-filter);
 }
 
 h1 {
     color: var(--text-color);
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
 }
 
 /* Sidebar Styling */
 .sidebar {
-    background: linear-gradient(180deg, #2b2d42 0%, #3f37c9 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: #fff;
-    width: 280px;
+    width: 260px;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     padding-top: 80px;
     transition: var(--transition);
-    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: inset -5px 0 10px rgba(0, 95, 153, 0.2);
+    z-index: 999;
 }
 
 .sidebar ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .sidebar li {
-    margin: 8px 15px;
+    margin: 14px 18px;
     border-radius: var(--border-radius);
 }
 
 .sidebar li a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     display: block;
-    padding: 12px 20px;
+    padding: 16px 22px;
     border-radius: var(--border-radius);
     transition: var(--transition);
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .sidebar li a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px);
+    background: var(--accent-color);
+    transform: translateX(10px);
 }
 
-/* Main Content Area */
+/* Main Content */
 main {
-    margin-left: 280px;
+    margin-left: 260px;
     padding: 90px 30px 30px;
     transition: var(--transition);
 }
 
+/* Section Heading */
+/* Section Heading */
 h2 {
     color: var(--text-color);
-    margin-bottom: 25px;
+    margin-bottom: 40px; /* Jarak antar elemen lebih besar */
     font-weight: 600;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 20px; /* Tambahkan lebih banyak jarak antara teks dan garis */
+    font-size: 1.5rem;
 }
 
 h2::after {
@@ -101,11 +114,12 @@ h2::after {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 50px;
-    height: 3px;
+    width: 80px;
+    height: 4px;
     background: var(--primary-color);
     border-radius: 2px;
 }
+
 
 /* Table Styling */
 table {
@@ -113,63 +127,64 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     margin-bottom: 30px;
-    background: #fff;
+    background: #ffffff;
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--box-shadow);
 }
 
 th, td {
-    padding: 1rem;
+    padding: 1.5rem;
     border: none;
-    border-bottom: 1px solid #eef0f5;
+    border-bottom: 1px solid #e0f7fa;
+    text-align: left;
 }
 
 th {
-    background-color: #f8fafc;
+    background-color: var(--background-color);
     font-weight: 600;
     color: var(--text-color);
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     letter-spacing: 0.5px;
 }
 
 tr:hover {
-    background-color: #f8fafc;
+    background-color: #ccf3f9;
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
 }
 
-/* Button Styling */
+/* Buttons */
 .add-btn {
     display: inline-block;
-    padding: 12px 24px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: #fff;
+    padding: 12px 28px;
+    background: var(--primary-color);
+    color: #ffffff;
     text-decoration: none;
     border-radius: var(--border-radius);
     transition: var(--transition);
     margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.2);
+    box-shadow: var(--box-shadow);
 }
 
 .add-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+    background: var(--accent-color);
+    transform: translateY(-5px);
 }
 
 .edit-btn, .delete-btn {
-    padding: 8px 16px;
+    padding: 12px 20px;
     color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     transition: var(--transition);
     font-weight: 500;
-    font-size: 0.9rem;
 }
 
 .edit-btn {
     background: var(--primary-color);
-    margin-right: 8px;
 }
 
 .delete-btn {
@@ -177,11 +192,11 @@ tr:hover {
 }
 
 .edit-btn:hover, .delete-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    box-shadow: var(--box-shadow);
 }
 
-/* Modal Styling */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -191,24 +206,21 @@ tr:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    backdrop-filter: var(--blur-filter);
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: #ffffff;
     margin: 10% auto;
     padding: 2rem;
-    border: none;
-    width: 90%;
-    max-width: 500px;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: modalSlideIn 0.3s ease-out;
+    box-shadow: var(--box-shadow);
+    animation: modalSlideIn 0.5s ease-out;
 }
 
 @keyframes modalSlideIn {
     from {
-        transform: translateY(-30px);
+        transform: translateY(-50px);
         opacity: 0;
     }
     to {
@@ -218,67 +230,23 @@ tr:hover {
 }
 
 .close {
-    color: #9ca3af;
+    color: #bbb;
     float: right;
     font-size: 24px;
     font-weight: 600;
-    transition: var(--transition);
 }
 
 .close:hover {
     color: var(--text-color);
 }
 
-/* Form Styling */
-form label {
-    display: block;
-    margin: 15px 0 8px;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-form input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    transition: var(--transition);
-    font-size: 0.95rem;
-}
-
-form input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
-}
-
-form button {
-    padding: 12px 24px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: var(--transition);
-    font-weight: 500;
-    width: 100%;
-    margin-top: 10px;
-}
-
-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.2);
-}
-
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
     .sidebar {
-        width: 240px;
+        width: 200px;
     }
-    
     main {
-        margin-left: 240px;
+        margin-left: 200px;
     }
 }
 
@@ -286,19 +254,11 @@ form button:hover {
     .sidebar {
         transform: translateX(-100%);
     }
-    
     main {
         margin-left: 0;
     }
-    
     .modal-content {
-        width: 95%;
-        margin: 5% auto;
-    }
-    
-    .edit-btn, .delete-btn {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+        width: 90%;
     }
 }
 
@@ -306,82 +266,13 @@ form button:hover {
     header {
         padding: 1rem;
     }
-    
     main {
         padding: 80px 15px 15px;
     }
-    
-    table {
-        font-size: 0.9rem;
-    }
-    
-    th, td {
-        padding: 0.75rem;
-    }
-}
-Updated Table CSS
-
-/* Table Styling */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-bottom: 30px;
-    background: #fff;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    table-layout: fixed; /* Menambahkan fixed layout */
 }
 
-th, td {
-    padding: 1rem;
-    border: none;
-    border-bottom: 1px solid #eef0f5;
-    text-align: left; /* Memastikan alignment konsisten */
-}
-
-/* Mengatur lebar spesifik untuk setiap kolom */
-th:nth-child(1), td:nth-child(1) { /* Nama */
-    width: 20%;
-}
-
-th:nth-child(2), td:nth-child(2) { /* Merek */
-    width: 15%;
-}
-
-th:nth-child(3), td:nth-child(3) { /* Kapasitas */
-    width: 15%;
-}
-
-th:nth-child(4), td:nth-child(4) { /* Tarif */
-    width: 15%;
-}
-
-th:nth-child(5), td:nth-child(5) { /* Status */
-    width: 15%;
-}
-
-th:nth-child(6), td:nth-child(6) { /* Aksi */
-    width: 20%;
-    text-align: center; /* Mengatur tombol aksi ke tengah */
-}
-
-th {
-    background-color: #f8fafc;
-    font-weight: 600;
-    color: var(--text-color);
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-}
-
-tr:hover {
-    background-color: #f8fafc;
-}
-
-/* Menyesuaikan tombol dalam kolom aksi */
-.edit-btn, .delete-btn {
-    display: inline-block;
-    margin: 0 4px;
+main {
+    margin-left: 260px;
+    padding: 120px 30px 30px; /* Ubah nilai padding-top untuk memberi lebih banyak ruang */
+    transition: var(--transition);
 }
