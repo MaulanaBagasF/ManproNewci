@@ -38,36 +38,11 @@
                         <td><%= pelanggan.alamat %></td>
                         <td>
                             <a class="edit-btn" href="/edit-pelanggan/<%= pelanggan.namaP %>"><button>Edit</button></a>
-                            <button class="delete-btn" onclick="hapusPelanggan('<%= pelanggan.namaP %>')">Delete</button>
                         </td>
                     </tr>
                 <% }) %>
             </tbody>
         </table>
     </main>
-    <script>
-        function hapusPelanggan(namaP) {
-            if (confirm('Apakah Anda yakin ingin menghapus pelanggan ini?')) {
-                fetch(`/hapus-pelanggan/${namaP}`, {
-                    method: 'DELETE',
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Success:', data);
-                    document.getElementById(`pelanggan-${namaP}`).remove();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Berhasil menghapus pelanggan');
-                });
-            }
-        }
-        
-    </script>
 </body>
 </html>
